@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/homeic"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/medicinesic"
+        android:title="Medicines"
+        android:icon="@drawable/ic_vitamin"/>
+    <item
+        android:id="@+id/bellic"
+        android:title="Medicines"
+        android:icon="@drawable/ic_bell"/>
+    <item
+        android:id="@+id/menuic"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_menu"/>
+
+    <!--Tällä märitellään mitkä iconit on menubarissa-->
+</menu>
