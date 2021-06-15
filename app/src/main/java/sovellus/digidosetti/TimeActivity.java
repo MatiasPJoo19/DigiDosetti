@@ -14,14 +14,14 @@ public class TimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_time);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.alavalikko);
 
         //ensimmäinen sivu valittu
         // tämä on home sivu
 
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.bellic);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -32,21 +32,24 @@ public class TimeActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext()
                                 , MainActivity.class));    //tässä valitaan mikä activity avataan
                         overridePendingTransition(0,0); //halutessa voi myös lisätä animaation
-                        return true;    // tämä on vain lopettamassa toiminnon että ei jää loopin
-
+                       // return true;    // tämä on vain lopettamassa toiminnon että ei jää loopin
+                        break;
                     case R.id.bellic:         //tässä ei tarvitse vaihtaa activityä kun olla jo valmiiksi home näkymässä
-                        return true;
+                       // return true;
+                        break;
 
-                    case R.id.menuic:
+                  case R.id.menuic:
                         startActivity(new Intent(getApplicationContext()
                                 , MenuActivity.class));     //tässä valitaan mikä activity avataan
                         overridePendingTransition(0,0);
-                        return true;
+                        //return true;
+                      break;
                     case R.id.medicinesic:
                         startActivity(new Intent(getApplicationContext()
                                 , MedicinesicActivity.class));     //tässä valitaan mikä activity avataan
                         overridePendingTransition(0,0);
-                        return true;
+                       // return true;
+                        break;
                 }
                 return false;
             }
