@@ -23,11 +23,15 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonLisaaLaake"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="100dp"
             android:text="Lisää lääke"
+            android:background="@drawable/button_set_app_1"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
