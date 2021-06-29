@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import sovellus.digidosetti.MedicinesicActivity;
 import sovellus.digidosetti.MenuActivity;
@@ -17,26 +18,24 @@ import sovellus.digidosetti.R;
 import sovellus.digidosetti.TimeActivity;
 
 public class MedicinesicActivity extends AppCompatActivity {
-
+    FloatingActionButton add_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicinesic);
 
         BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
-        //Button Lisaalaake = findViewById(R.id.buttonLisaaLaake);
-        //ensimmäinen sivu valittu
-        // tämä on home sivu
+        add_button = findViewById(R.id.floatingButtonLisaalaaka);
 
         bottomNavigationView.setSelectedItemId(R.id.medicinesic);
 
 
-        /*Lisaalaake.setOnClickListener(new View.OnClickListener() {
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LisaaLaakeVoid();
             }
-        });*/
+        });
 
 
 

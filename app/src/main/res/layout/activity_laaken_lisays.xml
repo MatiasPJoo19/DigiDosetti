@@ -6,14 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".LaakenLisaysActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/editTextT_laakeennimi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lääkeen lisäys activity"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Lääkken nimi"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_aika"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="otto aika"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextT_laakeennimi" />
+
+    <EditText
+        android:id="@+id/editText_maara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Lääkeen määrä"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_aika" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
