@@ -18,11 +18,18 @@ public class TimeActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.alavalikko);
 
-        //ensimmäinen sivu valittu
-        // tämä on home sivu
+
+
+
+
+
+
+
+
+
+
 
         bottomNavigationView.setSelectedItemId(R.id.bellic);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

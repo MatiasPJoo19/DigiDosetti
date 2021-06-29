@@ -24,19 +24,19 @@ public class MedicinesicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medicinesic);
 
         BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
-        Button Lisaalaake = findViewById(R.id.buttonLisaaLaake);
+        //Button Lisaalaake = findViewById(R.id.buttonLisaaLaake);
         //ensimmäinen sivu valittu
         // tämä on home sivu
 
         bottomNavigationView.setSelectedItemId(R.id.medicinesic);
 
 
-        Lisaalaake.setOnClickListener(new View.OnClickListener() {
+        /*Lisaalaake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LisaaLaakeVoid();
             }
-        });
+        });*/
 
 
 
