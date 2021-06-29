@@ -7,7 +7,7 @@
     tools:context=".LaakenLisaysActivity">
 
     <EditText
-        android:id="@+id/editTextT_laakeennimi"
+        android:id="@+id/editText_laakeennimi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -28,7 +28,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextT_laakeennimi" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_laakeennimi" />
 
     <EditText
         android:id="@+id/editText_maara"
@@ -41,5 +41,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_aika" />
+
+    <Button
+        android:id="@+id/buttonLisaaLaake"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/button_set_app_1"
+        android:text="Lisää lääke"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_maara" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,23 @@
 package sovellus.digidosetti;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 import sovellus.digidosetti.MedicinesicActivity;
 import sovellus.digidosetti.MenuActivity;
@@ -19,14 +26,21 @@ import sovellus.digidosetti.TimeActivity;
 
 public class MedicinesicActivity extends AppCompatActivity {
     FloatingActionButton add_button;
+    RecyclerView recyclerView;
+
+    MyDatabaseHelper myDB;
+    ArrayList<String> laake_id, laake_nimi, laake_aika, laake_maara;
+    CustomAdapter customAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicinesic);
-
-        BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
+        recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.floatingButtonLisaalaaka);
 
+
+        BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
         bottomNavigationView.setSelectedItemId(R.id.medicinesic);
 
 
@@ -36,6 +50,18 @@ public class MedicinesicActivity extends AppCompatActivity {
                 LisaaLaakeVoid();
             }
         });
+        myDB = new MyDatabaseHelper(MedicinesicActivity.this);
+        laake_id = new ArrayList<>();
+        laake_nimi = new ArrayList<>();
+        laake_aika = new ArrayList<>();
+        laake_maara = new ArrayList<>();
+
+        storeDataInArrays();
+        customAdapter = new CustomAdapter(MedicinesicActivity.this,this, laake_id, laake_nimi, laake_aika,
+                laake_maara);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MedicinesicActivity.this));
+
 
 
 
@@ -71,9 +97,29 @@ public class MedicinesicActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
+    }
     public void LisaaLaakeVoid(){
         startActivity(new Intent(getApplicationContext()
                                 , LaakenLisaysActivity.class));     //tässä valitaan mikä activity avataan
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    void storeDataInArrays(){
+        Cursor cursor = myDB.readAllData();
+        if(cursor.getCount() == 0){
+            Toast.makeText(this, "no data",Toast.LENGTH_SHORT).show();
+        }else{
+            while (cursor.moveToNext()){
+                laake_id.add(cursor.getString(0));
+                laake_nimi.add(cursor.getString(1));
+                laake_aika.add(cursor.getString(2));
+                laake_maara.add(cursor.getString(3));
+            }
+        }
     }
 }
