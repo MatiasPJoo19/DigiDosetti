@@ -42,24 +42,26 @@ import java.util.ArrayList;
         return new MyViewHolder(view);
     }
 
-    //@RequiresApi(api = Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+      //  holder.laake_idss.setText(String.valueOf(laake_id.get(position)));  //tset
         holder.laake_nimi_txt.setText(String.valueOf(laake_nimi.get(position)));
         holder.laake_aika_txt.setText(String.valueOf(laake_aika.get(position)));
         holder.laake_maara_txt.setText(String.valueOf(laake_maara.get(position)));
+
         //Recyclerview onClickListener
-       /* holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateActivity.class);
-                intent.putExtra("id", String.valueOf(book_id.get(position)));
-                intent.putExtra("title", String.valueOf(book_title.get(position)));
-                intent.putExtra("author", String.valueOf(book_author.get(position)));
-                intent.putExtra("pages", String.valueOf(book_pages.get(position)));
+                intent.putExtra("id", String.valueOf(laake_id.get(position)));
+                intent.putExtra("nimi", String.valueOf(laake_nimi.get(position)));
+                intent.putExtra("aika", String.valueOf(laake_aika.get(position)));
+                intent.putExtra("maara", String.valueOf(laake_maara.get(position)));
                 activity.startActivityForResult(intent, 1);
             }
-        });*/
+        });
 
 
     }
@@ -71,11 +73,12 @@ import java.util.ArrayList;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView laake_nimi_txt, laake_aika_txt, laake_maara_txt;
+        TextView laake_nimi_txt, laake_aika_txt, laake_maara_txt,laake_idss;//test
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
+           // laake_idss = itemView.findViewById(R.id.book_id_txt);//test
             laake_nimi_txt = itemView.findViewById(R.id.Laake_nimi_txt);
             laake_aika_txt = itemView.findViewById(R.id.Laake_aika_txt);
             laake_maara_txt = itemView.findViewById(R.id.Laake_maara_txt);

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LaakenLisaysActivity">
+    tools:context=".UpdateActivity">
 
     <EditText
-        android:id="@+id/editText_laakeennimi"
+        android:id="@+id/editText_laakeennimi2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText_aika"
+        android:id="@+id/editText_aika2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -28,10 +28,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_laakeennimi" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_laakeennimi2" />
 
     <EditText
-        android:id="@+id/editText_maara"
+        android:id="@+id/editText_maara2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -40,7 +40,7 @@
         android:hint="Lääkeen määrä"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_aika" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_aika2" />
 
     <Button
         android:id="@+id/buttonPaivitaLaake"
@@ -48,13 +48,30 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/button_set_app_1"
+        android:text="PÄIVITÄ LÄÄKE"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPoistaLaake"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_maara2"
+        app:layout_constraintVertical_bias="0.818" />
+
+    <Button
+        android:id="@+id/buttonPoistaLaake"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/button_set_app_1"
-        android:text="Lisää lääke"
+        android:text="POISTA LÄÄKE"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_maara" />
+        app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

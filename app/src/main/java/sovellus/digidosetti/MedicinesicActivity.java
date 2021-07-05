@@ -2,10 +2,12 @@ package sovellus.digidosetti;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -25,7 +27,7 @@ import sovellus.digidosetti.R;
 import sovellus.digidosetti.TimeActivity;
 
 public class MedicinesicActivity extends AppCompatActivity {
-    FloatingActionButton add_button;
+    FloatingActionButton add_button,del_btn;
     RecyclerView recyclerView;
 
     MyDatabaseHelper myDB;
@@ -38,7 +40,7 @@ public class MedicinesicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medicinesic);
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.floatingButtonLisaalaaka);
-
+        del_btn = findViewById(R.id.floatingButtonpoista);
 
         BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
         bottomNavigationView.setSelectedItemId(R.id.medicinesic);
@@ -48,6 +50,12 @@ public class MedicinesicActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LisaaLaakeVoid();
+            }
+        });
+        del_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
             }
         });
         myDB = new MyDatabaseHelper(MedicinesicActivity.this);
@@ -61,6 +69,8 @@ public class MedicinesicActivity extends AppCompatActivity {
                 laake_maara);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MedicinesicActivity.this));
+
+
 
 
 
@@ -108,6 +118,29 @@ public class MedicinesicActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext()
                                 , LaakenLisaysActivity.class));     //tässä valitaan mikä activity avataan
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete All?");
+        builder.setMessage("Are you sure you want to delete all Data?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(MedicinesicActivity.this);
+                myDB.deleteAllData();
+                //Refresh Activity
+                Intent intent = new Intent(MedicinesicActivity.this, MedicinesicActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
     void storeDataInArrays(){
         Cursor cursor = myDB.readAllData();

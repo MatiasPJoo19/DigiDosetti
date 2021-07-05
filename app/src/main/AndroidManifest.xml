@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Digidosetti">
-        <activity android:name=".LaakenLisaysActivity"
-            android:parentActivityName=".MedicinesicActivity"/>
+        <activity android:name=".UpdateActivity"></activity>
+        <activity
+            android:name=".LaakenLisaysActivity"
+            android:parentActivityName=".MedicinesicActivity"
+            />
         <activity android:name=".TimeActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MedicinesicActivity" />
