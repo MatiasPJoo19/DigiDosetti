@@ -13,6 +13,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,36 +25,56 @@ import java.util.ArrayList;
 public class MedicinesicActivity extends AppCompatActivity {
     FloatingActionButton menu_btn, add_button,del_btn;
     RecyclerView recyclerView;
-
+    Animation fabOpen, fabClose, rotateForward, rotateBackward;
     MyDatabaseHelper myDB;
     ArrayList<String> laake_id, laake_nimi, laake_aika, laake_maara;
     CustomAdapter customAdapter;
+    boolean isopen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicinesic);
+
         recyclerView = findViewById(R.id.recyclerView);
+        //floatting buttonit
         menu_btn = (FloatingActionButton) findViewById(R.id.floatingButtonValikko);
         add_button = (FloatingActionButton) findViewById(R.id.floatingActionButtonAdd);
         del_btn = (FloatingActionButton) findViewById(R.id.floatingActionButtonDelete);
+        //animaatiot
+        fabOpen = AnimationUtils.loadAnimation(this,R.anim.fab_open);
+        fabClose = AnimationUtils.loadAnimation(this,R.anim.fab_close);
+        rotateForward = AnimationUtils.loadAnimation(this,R.anim.rotate_forward);
+        rotateBackward = AnimationUtils.loadAnimation(this,R.anim.rotate_backward);
 
         BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
         bottomNavigationView.setSelectedItemId(R.id.medicinesic);
 
 
+        menu_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animFab();
+            }
+        });
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LisaaLaakeVoid();
+               // LisaaLaakeVoid();
+                animFab();
+                Toast.makeText(getBaseContext(), "add_btn" , Toast.LENGTH_SHORT ).show();
             }
         });
         del_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                confirmDialog();
+               //confirmDialog();
+                animFab();
+                Toast.makeText(getBaseContext(), "del_btn" , Toast.LENGTH_SHORT ).show();
             }
         });
+
+
         myDB = new MyDatabaseHelper(MedicinesicActivity.this);
         laake_id = new ArrayList<>();
         laake_nimi = new ArrayList<>();
@@ -101,6 +123,26 @@ public class MedicinesicActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    //floatting button animaatiot funktio
+    private void animFab(){
+        if(isopen){
+            menu_btn.startAnimation(rotateForward);
+            add_button.startAnimation(fabClose);
+            del_btn.startAnimation(fabClose);
+            add_button.setClickable(false);
+            del_btn.setClickable(false);
+            isopen=false;
+        }else{
+            menu_btn.startAnimation(rotateBackward);
+            add_button.startAnimation(fabOpen);
+            del_btn.startAnimation(fabOpen);
+            add_button.setClickable(true);
+            del_btn.setClickable(true);
+            isopen=true;
+        }
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
