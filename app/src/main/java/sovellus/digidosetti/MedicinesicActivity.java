@@ -21,7 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MedicinesicActivity extends AppCompatActivity {
-    FloatingActionButton add_button,del_btn;
+    FloatingActionButton menu_btn, add_button,del_btn;
     RecyclerView recyclerView;
 
     MyDatabaseHelper myDB;
@@ -33,8 +33,9 @@ public class MedicinesicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicinesic);
         recyclerView = findViewById(R.id.recyclerView);
-        add_button = findViewById(R.id.floatingButtonValikko);
-        del_btn = findViewById(R.id.floatingButtonpoista);
+        menu_btn = (FloatingActionButton) findViewById(R.id.floatingButtonValikko);
+        add_button = (FloatingActionButton) findViewById(R.id.floatingActionButtonAdd);
+        del_btn = (FloatingActionButton) findViewById(R.id.floatingActionButtonDelete);
 
         BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);
         bottomNavigationView.setSelectedItemId(R.id.medicinesic);
