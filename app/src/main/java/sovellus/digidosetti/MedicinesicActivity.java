@@ -13,18 +13,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-
-import sovellus.digidosetti.MedicinesicActivity;
-import sovellus.digidosetti.MenuActivity;
-import sovellus.digidosetti.R;
-import sovellus.digidosetti.TimeActivity;
 
 public class MedicinesicActivity extends AppCompatActivity {
     FloatingActionButton add_button,del_btn;
@@ -39,7 +33,7 @@ public class MedicinesicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicinesic);
         recyclerView = findViewById(R.id.recyclerView);
-        add_button = findViewById(R.id.floatingButtonLisaalaaka);
+        add_button = findViewById(R.id.floatingButtonValikko);
         del_btn = findViewById(R.id.floatingButtonpoista);
 
         BottomNavigationView  bottomNavigationView = findViewById(R.id.alavalikko);

@@ -28,32 +28,45 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingButtonLisaalaaka"
+            android:id="@+id/floatingButtonValikko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:clickable="true"
+            android:backgroundTint="@color/AppBlue"
             app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.921"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            android:src="@drawable/ic_add" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingButtonpoista"
+            android:id="@+id/floatingActionButtonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.104"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            android:layout_marginBottom="16dp"
+            android:visibility="invisible"
+            android:backgroundTint="@color/AppBlue2"
+            app:layout_constraintBottom_toTopOf="@+id/floatingButtonValikko"
+            app:layout_constraintEnd_toEndOf="@+id/floatingButtonValikko"
+            app:srcCompat="@drawable/ic_bell" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/AppBlue2"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonAdd"
+            app:layout_constraintEnd_toEndOf="@+id/floatingActionButtonAdd"
+            app:srcCompat="@drawable/ic_bell" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
