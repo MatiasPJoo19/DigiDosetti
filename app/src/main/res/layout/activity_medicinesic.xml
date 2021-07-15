@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/alavalikko2">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -20,7 +21,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="658dp">
+        android:layout_height="658dp"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -37,14 +39,14 @@
             android:id="@+id/floatingButtonValikko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:clickable="true"
+            android:layout_marginBottom="0dp"
             android:backgroundTint="@color/AppBlue"
+            android:clickable="true"
+            android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.921"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_add" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButtonAdd"
@@ -55,7 +57,7 @@
             android:backgroundTint="@color/AppBlue2"
             app:layout_constraintBottom_toTopOf="@+id/floatingButtonValikko"
             app:layout_constraintEnd_toEndOf="@+id/floatingButtonValikko"
-            app:srcCompat="@drawable/ic_bell" />
+            app:srcCompat="@drawable/ic_add_box" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButtonDelete"
@@ -66,7 +68,7 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonAdd"
             app:layout_constraintEnd_toEndOf="@+id/floatingActionButtonAdd"
-            app:srcCompat="@drawable/ic_bell" />
+            app:srcCompat="@drawable/ic_delete" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
