@@ -45,7 +45,7 @@ import java.util.ArrayList;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-      //  holder.laake_idss.setText(String.valueOf(laake_id.get(position)));  //tset
+        //holder.laake_idss.setText(String.valueOf(laake_id.get(position)));  //tset
         holder.laake_nimi_txt.setText(String.valueOf(laake_nimi.get(position)));
         holder.laake_aika_txt.setText(String.valueOf(laake_aika.get(position)));
         holder.laake_maara_txt.setText(String.valueOf(laake_maara.get(position)));

@@ -60,17 +60,17 @@ public class MedicinesicActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // LisaaLaakeVoid();
+                LisaaLaakeVoid();
                 animFab();
-                Toast.makeText(getBaseContext(), "add_btn" , Toast.LENGTH_SHORT ).show();
+               // Toast.makeText(getBaseContext(), "add_btn" , Toast.LENGTH_SHORT ).show();
             }
         });
         del_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //confirmDialog();
+                confirmDialog();
                 animFab();
-                Toast.makeText(getBaseContext(), "del_btn" , Toast.LENGTH_SHORT ).show();
+                //Toast.makeText(getBaseContext(), "del_btn" , Toast.LENGTH_SHORT ).show();
             }
         });
 

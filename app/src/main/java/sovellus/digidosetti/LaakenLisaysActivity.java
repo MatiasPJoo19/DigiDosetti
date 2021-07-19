@@ -12,6 +12,7 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class LaakenLisaysActivity extends AppCompatActivity {
+
 EditText nimi_input,aika_input,maara_input;
 Button lisaa_laake;
 

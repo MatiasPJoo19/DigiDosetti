@@ -22,9 +22,9 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        nimi_input = findViewById(R.id.editText_laakeennimi);
-        aika_input = findViewById(R.id.editText_aika);
-        maara_input = findViewById(R.id.editText_maara);
+        nimi_input = findViewById(R.id.editText_laakeennimi2);
+        aika_input = findViewById(R.id.editText_aika2);
+        maara_input = findViewById(R.id.editText_maara2);
         btn_paivita = findViewById(R.id.buttonPaivitaLaake);
         btn_poista = findViewById(R.id.buttonPoistaLaake);
 
@@ -51,23 +51,26 @@ public class UpdateActivity extends AppCompatActivity {
                confirmDialog();
            }
        });
+        /*MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+        myDB.updateDate(id,nimi,aika,maara);*/
     }
 
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("id") && getIntent().hasExtra("nimi") &&
+       if(getIntent().hasExtra("id") && getIntent().hasExtra("nimi") &&
                 getIntent().hasExtra("aika") && getIntent().hasExtra("maara")){
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
             nimi = getIntent().getStringExtra("nimi");
             aika = getIntent().getStringExtra("aika");
             maara = getIntent().getStringExtra("maara");
-
-            //Setting Intent Data
-            nimi_input.setText(nimi);
-            aika_input.setText(aika);
-            maara_input.setText(maara);
+           Toast.makeText(this, maara, Toast.LENGTH_SHORT).show();
+            //Setting Intent Data virhe on tässä jossain koska data löytyy ja tallentuu muutujaan nyt vain pitää saada se laatikoihin
+           nimi_input.setText(nimi);
+           aika_input.setText(aika);
+           maara_input.setText(maara);
             Log.d("stev", nimi+" "+aika+" "+maara);
+           //Toast.makeText(this, "data löyty.", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
